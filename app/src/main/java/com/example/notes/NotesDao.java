@@ -16,6 +16,6 @@ public interface NotesDao {
     void addNote(Note note);
 
     @Query("Delete from notes where id = :noteId")
-    void removeNote(Integer noteId);
+    void removeNote(int noteId);
 
 }
