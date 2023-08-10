@@ -1,11 +1,10 @@
 package com.example.notes;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.RecyclerView;
-
 import android.content.Intent;
 import android.os.Bundle;
-import android.widget.Button;
+
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
@@ -13,6 +12,7 @@ public class MainActivity extends AppCompatActivity {
 
     private RecyclerView recyclerView;
     private FloatingActionButton buttonToAddNote;
+    private NotesDatabase notesDatabase;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -20,17 +20,26 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         initViews();
         openAddingNoteActivity();
+        attachAdapterToRecyclerView();
+
 
     }
 
-    private void initViews(){
+
+    private void initViews() {
         recyclerView = findViewById(R.id.recyclerView);
         buttonToAddNote = findViewById(R.id.buttonToAddNote);
     }
-    private void openAddingNoteActivity(){
+
+    private void openAddingNoteActivity() {
         buttonToAddNote.setOnClickListener(v -> {
             Intent intent = AddingNoteActivity.newIntent(this);
             startActivity(intent);
         });
+    }
+
+    private void attachAdapterToRecyclerView() {
+        NotesAdapter notesAdapter = new NotesAdapter();
+        recyclerView.setAdapter(notesAdapter);
     }
 }
