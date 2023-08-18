@@ -1,6 +1,9 @@
 <resources>
     <string name="app_name">Notes</string>
     <string name="buttontoaddnote">buttonToAddNote</string>
-    <string name="print_your_note">Print your note</string>
-    <string name="save">Save</string>
+    <string name="print_your_note">Введите заметку</string>
+    <string name="save">Сохранить</string>
+    <string name="No_notes">Заметок нет...</string>
+    <string name="img">img</string>
+    <string name="notes">Notes</string>
 </resources>

@@ -1,21 +1,25 @@
 package com.example.notes;
 
+import androidx.lifecycle.LiveData;
 import androidx.room.Dao;
 import androidx.room.Insert;
 import androidx.room.Query;
 
 import java.util.List;
 
+import io.reactivex.rxjava3.core.Completable;
+import io.reactivex.rxjava3.core.Single;
+
 @Dao
 public interface NotesDao {
 
     @Query("Select * from notes")
-    List<Note> getAllNotes();
+    LiveData<List<Note>> getAllNotes();
 
     @Insert
-    void addNote(Note note);
+    Completable addNote(Note note);
 
     @Query("Delete from notes where id = :noteId")
-    void removeNote(int noteId);
+    Completable removeNote(int noteId);
 
 }
